@@ -39,9 +39,11 @@
 ;; (boolean-xor t nil) => t
 ;; (boolean-xor nil nil) => nil
 (defun boolean-xor (a b)
-  (if (xor a b)
+  (if (and (not a) b)
       T
-      NIL))
+      (if (and a (not b))
+          T
+          NIL)))
 
 ;; Return the implication of a and b
 ;; Examples:
