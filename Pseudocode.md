@@ -48,4 +48,3 @@ function boolean-eval(exp):
         return boolean-iff(boolean-eval(second element of exp), boolean-eval(third element of exp))
     else:
         return False
-
