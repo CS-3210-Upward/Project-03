@@ -1,0 +1,38 @@
+:true
+    - NIL    :False
+    - IF     :If Conditional
+    - WHEN   :When conditional, if first argument is true, evaluate second argument. else return NIL
+                WHEN is a conditional construct in Lisp used to execute code when a condition is true.
+                It has the form (WHEN condition body), where condition is an expression that evaluates to true or false, and body is the code to execute if condition is true.
+                If condition evaluates to true, body is executed. If condition evaluates to false, nothing happens.
+                WHEN is useful when you only want to execute code under certain conditions without needing an else clause.
+
+    - COND   :multi branch conditions. returns result of corresponding body
+    - NOT    :negates its argument. If true, returns false vice versa
+    - AND    :true if all arguments are true, else false
+    - OR     :if any arguments are true, returns true
+    - EQUAL  :Compares two arguments for equality, T or False
+    - CONS   :CONS is a fundamental function in Lisp used to create a cons cell, which is the basic building block for constructing lists.
+                It takes two arguments: the car (first element) and the cdr (rest of the list).
+                The result is a cons cell with the first argument as its car and the second argument as its cdr.
+                Cons cells can be used to build lists, trees, and other data structures in Lisp.
+
+    - LIST   :creates a list containing arguments
+    - CAR    :returns first element of a cons cell or list
+    - CDR    : returns rest of list of a cons cell or list
+    - FIRST  :Alias for CAR^^^
+    - SECOND :Returns second element of a list
+    - THIRD  :Returns third element of a list
+    - LENGTH :Returns length of a list
+    - DEFUN  :defines new functions
+    - LABELS :define local functions
+                LABELS is a special form in Lisp used for defining local functions.
+                It allows you to define one or more functions within a local scope that are only accessible within that scope.
+                The syntax for LABELS is (LABELS ((function-name parameters body) ...)
+                
+    - LET    :binds variables to values for use within a scope
+    - LET*   :This function is similar to LET, but it binds variables sequentially, so later bindings can depend on earlier ones.
+    - FUNCALL:Calls function with specified arguments
+    - QUOTE  :Returns its argument without evaluating it
+    - any arithmetic operator or relation (+, -, *, /, <, <=, >, >=, =)
+    - any numerical constant
