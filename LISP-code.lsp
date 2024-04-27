@@ -92,12 +92,12 @@
 (defun boolean-eval (exp)
    (cond
     ((atom exp) exp) ;;base case, if atom, return unchanged
-    ((EQUAL (car exp) 'not) (not (boolean-eval (car (cdr exp))))) ; if a negation (not), recursively evaluate
-    ((EQUAL (car exp) 'and) (and (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))); if conjunction (and), recursively evaluate both
-    ((EQUAL (car exp) 'or) (or (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp)))))); if OR, recursively evaluate both subexpressions and return result
-    ((EQUAL (car exp) 'xor) (boolean-xor (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp))))));
-    ((EQUAL (car exp) 'implies) (boolean-implies (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp))))))
-    ((EQUAL (car exp) 'iff) (boolean-iff (boolean-eval (car (cdr exp))) (boolean-eval (car (cdr (cdr exp))))))
+    ((EQUAL (car exp) 'not) (not (boolean-eval (SECOND exp)))) ; if a negation (not), recursively evaluate
+    ((EQUAL (car exp) 'and) (and (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp)))); if conjunction (and), recursively evaluate both
+    ((EQUAL (car exp) 'or) (or (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp))))); if OR, recursively evaluate both subexpressions and return result
+    ((EQUAL (car exp) 'xor) (boolean-xor (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp)))));
+    ((EQUAL (car exp) 'implies) (boolean-implies (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp)))))
+    ((EQUAL (car exp) 'iff) (boolean-iff (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp)))))
     (T NIL)))
 
 
