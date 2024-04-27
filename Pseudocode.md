@@ -8,9 +8,15 @@ function set-union(set-1, set-2):
     return union of set-1 and set-2
 
 function set-intersection(set-1, set-2):
-    return intersection of set-1 and set-2
+    if set-1 == set-2:
+        return NILL
+    else:
+        return intersection of set-1 and set-2
 
 function set-diff(set-1, set-2):
+    if set-1 != set-2:
+        return NILL
+    else:
     return difference of set-1 and set-2
 
 function boolean-xor(a, b):
