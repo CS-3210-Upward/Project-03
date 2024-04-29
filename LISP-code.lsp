@@ -107,3 +107,46 @@
     ((equal (car exp) 'implies) (boolean-implies (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
     ((equal (car exp) 'iff) (boolean-iff (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
     (T NIL)))
+
+;;TESTS
+;;SET MEMBER
+(print "Testing: Set-Member with params '(1 2) 1")
+(print(set-member '(1 2) 1)) ;T 
+(print "Testing: Set-Member with params '(1 2) 3")
+(print(set-member '(1 2) 3)) ;NIL
+
+;;SET-UNION
+(print "Testing: Set-Union with params '(1 2) '(2 4)")
+(print(set-union '(1 2) '(2 4))) ;'(1 2 4)
+
+;;SET-INTERSECTION
+(print "Testing: Set-Intersection with params '(1 2) '(2 4)")
+(print(set-intersection '(1 2) '(2 4))) ; '(2)
+
+;;SET-DIFF
+(print "Testing: Set-Diff with params '(1 2) '(2 4)")
+(print(set-diff '(1 2) '(2 4))) ; '(1)
+
+;;BOOLEAN-XOR
+(print "Testing: Boolean-XOR with params '(1 2 3) '(1 2 3)")
+(print(boolean-xor T NIL)) ; T
+(print "Testing: Boolean-XOR with params nil nil")
+(print(boolean-xor NIL NIL)) ; NIL
+
+;;BOOLEAN-IMPLIES
+(print "Testing: Boolean-implies with params T NIL")
+(print(boolean-implies T NIL)) ; NIL
+(print "Testing: Boolean-implies with params NIL NIL")
+(print(boolean-implies NIL NIL)) ; T
+
+;;BOOLEAN-IFF
+(print "Testing: Boolean-iff with params T NIL")
+(print (boolean-iff T NIL)) ; NIL
+(print "Testing: Boolean-iff with params NIL NIL")
+(print (boolean-iff NIL NIL)) ; T
+
+;;BOOLEAN-EVAL
+(print "Testing: Boolean-eval with params '(and T NIL)")
+(print(boolean-eval '(and t nil))) ;NIL
+(print "Testing: Boolean-eval with params '(and t (or nil t))")
+(print(boolean-eval '(and t (or nil t)))) ;T

@@ -90,14 +90,14 @@
 ;; (boolean-eval '(and t nil)) => nil
 ;; (boolean-eval '(and t (or nil t)) => t
 (defun boolean-eval (exp)
-   (cond
-    ((atom exp) exp) ;;base case, if atom, return unchanged
-    ((EQUAL (car exp) 'not) (not (boolean-eval (SECOND exp)))) ; if a negation (not), recursively evaluate
-    ((EQUAL (car exp) 'and) (and (boolean-eval (SECOND exp)) (boolean-eval (THIRD exp)))); if conjunction (and), recursively evaluate both
-    ((EQUAL (car exp) 'or) (or (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp))))); if OR, recursively evaluate both subexpressions and return result
-    ((EQUAL (car exp) 'xor) (boolean-xor (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp)))));
-    ((EQUAL (car exp) 'implies) (boolean-implies (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp)))))
-    ((EQUAL (car exp) 'iff) (boolean-iff (boolean-eval (SECOND exp)) (boolean-eval ((THIRD exp)))))
+    (cond
+    ((atom exp) exp)
+    ((equal (car exp) 'not) (not (boolean-eval (cadr exp))))
+    ((equal (car exp) 'and) (and (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
+    ((equal (car exp) 'or) (or (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
+    ((equal (car exp) 'xor) (boolean-xor (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
+    ((equal (car exp) 'implies) (boolean-implies (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
+    ((equal (car exp) 'iff) (boolean-iff (boolean-eval (cadr exp)) (boolean-eval (caddr exp))))
     (T NIL)))
 
 
